@@ -97,3 +97,43 @@ serve.use('*', function(req, res, next) {
     res.send('router use ok!')
 })
 ```
+
+
+
+昨天的问题, 今天闲了才解决. 
+router.get('art/', function(){})
+
+router.get('art/:id, functoin(){})
+
+我把第二个router 当做是req,params 里面那参数了.理解错了
+
+!!! 这里需要去了解一下req.params 和req.body  、 req.query 区别.
+
+1.req.params   get
+
+所对应的url长这个样子 http://localhost:3000/10
+
+
+2.req.query    get
+
+所对应的url长这个样子http://localhost:3000/?id=10
+
+app.get("/",function (req,res) {
+    res.send(req.query["id"]);
+});
+
+
+3.req.body   是post请求的拿到的方法
+
+req.body.name , req.body.age
+
+
+[https://blog.csdn.net/weixin_40522523/article/details/97190796]
+
+
+
+
+# metratial
+
+
+[https://blog.csdn.net/weixin_40522523/article/details/97190796]
