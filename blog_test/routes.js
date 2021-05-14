@@ -23,11 +23,12 @@ router.get('/articles', home.articlesPage)
 // 后台 ================
 
 router.get('/admin/login', admin.loginPage)
-
+router.get('/admin/articles', admin.articlesManage)
 router.get('/admin/article/add', admin.addArticle)
 router.delete('/admin/article/:id', admin.deleteArticle)
 router.get('/admin/article/edit/:id', admin.editArticle)
 router.post('/admin/artilce/update/', admin.updateArticle)
+router.post('/admin/login', admin.login)
 
 module.exports = router;
 

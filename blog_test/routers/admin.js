@@ -1,36 +1,41 @@
 const { Article } = require('../models/articles')
 
-const index = (req, res) => {
-    Article.find({}, function(err, data) {
-        if (err) throw err;
-        res.send(data)
-    })
-    // res.send('articles admin page')
+
+
+// post */admin/login
+const login = (req, res) =>{
+    console.log('get post is', req.body)
+    const { username, password } = req.body
+    res.send(req.body)
 }
 
+// get /admin/login
 const loginPage = (req, res) => {
-    res.send('login page')
+    res.render('./admin/login.html')
 }
 
-// admin 文章列表管理页面
-const articles = (req, res) => {
+
+// */admin/articles
+const articlesManage = (req, res) => {
     Article.find({}, function(err, data) {
         if (err) throw err;
-        res.send(data)
+        console.log(data)
+        res.render('./admin/manage.html',{data})
     })
 }
 
+// */admin/article/add
 const addArticle = (req, res) => {
-    res.send('addArticle page')
+    res.render('./admin/createArticle.html')
 }
 
+// */admin/article/:id
 const deleteArticle = (req, res) => {
     let id = req.params.id
     res.send('delete Article')
-    // Article.findById
 }
 
-//编辑页面
+//编辑页面 */admin/article/edit/:id
 const editArticle = (req, res) => {
     let id = req.params.id
     res.send('artilce edit page')
@@ -44,10 +49,10 @@ const updateArticle = (req, res) => {
 
 
 module.exports = {
-    index,
+    login,
     addArticle,
     loginPage,
-    articles,
+    articlesManage,
     deleteArticle,
     editArticle,
     updateArticle

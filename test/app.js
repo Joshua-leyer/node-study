@@ -53,7 +53,6 @@ serve.post('/articles/add', function(req, res) {
 
     one.save(function(err, doc) {
         if (err) throw err;
-
         console.log('save success : ', doc)
     });
 

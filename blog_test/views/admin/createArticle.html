@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {{ include '../layouts/layoutHead.html' }}
+
+</head>
+<body>
+    <div class="mdui-container">
+        <form action="/admin/login" method="POST">
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <label class="mdui-textfield-label">title</label>
+                <input class="mdui-textfield-input" type="text" />
+              </div>
+              <div class="mdui-textfield">
+                <textarea class="mdui-textfield-input" rows="4" placeholder="Message"></textarea>
+              </div>
+              <button class="mdui-btn mdui-color-orange-300 mdui-ripple">button</button>
+        </form>
+      </div>
+</body>
+</html>

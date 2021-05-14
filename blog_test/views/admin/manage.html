@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshua Blog</title>
+    {{ include '../layouts/layoutHead.html' }}
+
+</head>
+<body>
+    <h1>admin manage page</h1>
+    <body>
+        <div class="mdui-container">
+            <table class="mdui-table mdui-table-hoverable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>_id</th>
+                  <th>created</th>
+                  <th>title</th>
+                  <th>author</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{each data value}}
+                    <tr>
+                        <td>{{$index + 1}}</td>
+                        <td>{{value._id}}</td>
+                        <td>{{value.created}}</td>
+                        <td>{{value.title}}</td>
+                        <td>{{value.author}}</td>
+                    </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+          {{ data }}
+    </body>
+</body>
+</html>

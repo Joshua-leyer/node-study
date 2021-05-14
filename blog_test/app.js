@@ -1,15 +1,19 @@
 const express = require('express')
+const path = require('path')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 
 const app = express()
 const port = 3000
 
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'node_modules')))
 
-// 解析 application/json
 app.use(bodyParser.json()); 
-// 解析 application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
+
+
+app.engine('html', require('express-art-template'))
 
 mongoose.connect("mongodb://localhost/test", {
     useNewUrlParser: true,
@@ -24,10 +28,7 @@ mongoose.connect("mongodb://localhost/test", {
 
 const router = require('./routes.js')
 
-app.use('/', router)  
-
-
-
+app.use('/', router)
 
 
 app.listen(port, () => {
