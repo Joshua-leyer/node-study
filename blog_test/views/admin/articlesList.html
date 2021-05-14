@@ -1,0 +1,47 @@
+{{extend './manage.html'}}
+{{ block 'content'}}
+
+<!-- 好畸形啊 -->
+<link rel="stylesheet" href="/myCss/adminArticlesList.css">
+    <table class="mdui-table" id="articles-box">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>title</th>
+            <th>created</th>
+            <th>options</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>one</td>
+            <td>2021年5月15日 02:56:11</td>
+            <td>
+            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-orange-900">Edit</button>
+            <button class="mdui-btn mdui-btn-raised mdui-ripple">
+                <i class="mdui-icon material-icons">delete</i>
+            </button> 
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>one</td>
+            <td>2021年5月15日 02:56:11</td>
+            <td>emij</td>
+        </tr>
+        </tbody>
+    </table>
+{{/block}}
+
+
+<style>
+    /*这里设置样式没用。。*/
+#articles-box {
+    background: chocolate;
+}
+
+#articles-box td {
+    text-align: center;
+}
+</style>

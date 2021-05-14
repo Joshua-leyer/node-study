@@ -1,0 +1,49 @@
+<header class="mdui-row mdui-shadow-3">
+    <div id="logo" 
+        class="mdui-col-xs-3 
+        mdui-col-sm-2 
+        mdui-col-md-2
+        mdui-col-offset-md-1">
+            <a href="/">My Blog</a>
+    </div>
+
+    <div id="menu" 
+        class="mdui-col-xs-3 
+        mdui-col-offset-xs-6 
+        mdui-col-sm-4 
+        mdui-col-offset-sm-4 
+        mdui-col-md-4 
+        mdui-col-offset-md-2">
+        
+    </div>
+</header>
+
+
+<style>
+    header {
+        height: 62px;
+
+    }
+    #logo {
+        height: 100%;
+        /* background: pink; */
+        /* text-align: center; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5em;
+    }
+    #logo a {
+        text-decoration:none;
+        color:#ff9800;
+    }
+    #menu{
+        height: 100%;
+    }
+</style>
+
+<script>
+    window.onscroll(function(){
+        console.log('header scroll change')
+    })
+</script>

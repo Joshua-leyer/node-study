@@ -20,7 +20,7 @@ const articlesManage = (req, res) => {
     Article.find({}, function(err, data) {
         if (err) throw err;
         console.log(data)
-        res.render('./admin/manage.html',{data})
+        res.render('./admin/articlesList.html',{data})
     })
 }
 
