@@ -1,25 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    {{ include '../layouts/layoutHead.html' }}
+{{extend './manage.html'}}
 
-</head>
-<body>
-    <div class="mdui-container">
-        <form action="/admin/login" method="POST">
-            <div class="mdui-textfield mdui-textfield-floating-label">
-                <label class="mdui-textfield-label">title</label>
-                <input class="mdui-textfield-input" type="text" />
-              </div>
-              <div class="mdui-textfield">
-                <textarea class="mdui-textfield-input" rows="4" placeholder="Message"></textarea>
-              </div>
-              <button class="mdui-btn mdui-color-orange-300 mdui-ripple">button</button>
-        </form>
+
+{{ block 'content'}}
+
+  <link rel="stylesheet" href="/myCss/adminArticleCreate.css">
+
+  <div class="mdui-container">
+    <div class="tittle">
+      <div class="mdui-textfield mdui-textfield-floating-label">
+        <input id="title" class="mdui-textfield-input" type="text" placeholder="请输入文章名" required maxlength="24"/>
+        <div class="mdui-textfield-error">请填写标题</div>
       </div>
-</body>
-</html>
+    </div>
+    <!-- Create the editor container -->
+    <div id="edit"></div>
+
+    <button id="update" class="mdui-btn mdui-color-orange-300 mdui-ripple">button</button>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/wangeditor@latest/dist/wangEditor.min.js"></script>
+<script >
+
+    const E = window.wangEditor
+    const editor = new E('#edit')
+    editor.config.placeholder = '请输入正文'
+    editor.config.zIndex = 2
+    editor.config.height = 500
+    // editor.txt.html()
+    // 或者 const editor = new E( document.getElementById('div1') )
+    editor.create()
+
+    const Button = document.querySelector('#update')
+    Button.addEventListener('click', function(e) {
+      e.preventDefault;
+          // ajax
+          let title = $("#title").val();
+          let articleContent = editor.txt.html();
+          let data = {
+            title: title,
+            body: articleContent
+          }
+          $.ajax({
+            type: "POST",
+            url: "/admin/article/add",
+            data: data,
+            error: function(request) {
+              console.log('ajax post error')
+            },
+            success: function(msg){
+              alert( "Data Saved: " + msg );
+            }
+          });
+
+      console.log(editor.txt.html());
+    })
+
+
+</script>
+{{/block}}

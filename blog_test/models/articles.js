@@ -8,6 +8,7 @@ const ArticleSchema = new Schema({
         required: true
     },
     auther: {
+        default: '玉米羹',
         type: String,
         required: true
     },

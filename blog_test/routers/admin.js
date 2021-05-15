@@ -15,7 +15,7 @@ const loginPage = (req, res) => {
 }
 
 
-// */admin/articles
+// get */admin/articles
 const articlesManage = (req, res) => {
     Article.find({}, function(err, data) {
         if (err) throw err;
@@ -24,24 +24,36 @@ const articlesManage = (req, res) => {
     })
 }
 
-// */admin/article/add
-const addArticle = (req, res) => {
+// get */admin/article/create
+const createArticle = (req, res) => {
     res.render('./admin/createArticle.html')
 }
 
-// */admin/article/:id
-const deleteArticle = (req, res) => {
-    let id = req.params.id
-    res.send('delete Article')
+// post /admin/article/add
+const addArticle = (req, res) => {
+    let data = req.body
+    console.log(data)
+
+    res.send('get article data')
 }
 
-//编辑页面 */admin/article/edit/:id
+// delete /admin/article/:id
+const deleteArticle = (req, res) => {
+    res.send('delete Article')
+    let query = {_id: req.params.id}
+    Article.remove(query, function(err) {
+        if (err) throw err
+        res.send('delete article ok')
+    })
+}
+
+// get  /admin/article/edit/:id
 const editArticle = (req, res) => {
     let id = req.params.id
     res.send('artilce edit page')
 }
 
-//更新文章
+// get   /admin/article/update
 const updateArticle = (req, res) => {
     let id = req.params.id
     res.send('article update ')
@@ -50,6 +62,7 @@ const updateArticle = (req, res) => {
 
 module.exports = {
     login,
+    createArticle,
     addArticle,
     loginPage,
     articlesManage,
