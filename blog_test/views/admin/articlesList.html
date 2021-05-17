@@ -1,11 +1,13 @@
-{{extend './manage.html'}}
+{{extend './adminLayout.html'}}
 {{ block 'content'}}
 
 <!-- 好畸形啊 -->
 
-<input class="btn btn-default" type="button" value="Input">
 
 <link rel="stylesheet" href="/myCss/adminArticlesList.css">
+
+<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-green"><a href="/admin/article/add">增加</a></button>
+
     <table class="mdui-table" id="articles-box">
         <thead>
         <tr>
@@ -16,26 +18,22 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>one</td>
-            <td>2021年5月15日 02:56:11</td>
-            <td>
-            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-orange-900">Edit</button>
-            <button class="mdui-btn mdui-btn-raised mdui-ripple">
-                <i class="mdui-icon material-icons">delete</i>
-            </button> 
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>one</td>
-            <td>2021年5月15日 02:56:11</td>
-            <td>emij</td>
-        </tr>
+            {{each data value}}
+                <tr>
+                    <td>{{$index}}</td>
+                    <td>{{value.title}}</td>
+                    <td>{{value.created}}</td>
+                    <td>
+                        <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-orange-900"><a href="/admin/article/edit/{{ `${value._id}` }}">Edit</a></button>
+                        <button class="mdui-btn mdui-btn-raised mdui-ripple delete-box" data-id="{{`${value._id}`}}">
+                        <a class="mdui-icon material-icons" href="#">delete</a>
+                        </button> 
+                    </td>
+                </tr>
+            {{/each}}
         </tbody>
+        {{ error }}
     </table>
-
 
 
 {{/block}}

@@ -2,6 +2,18 @@
 
 
 
+# learning log
+
+$ mongo
+$ show dbs;
+$ use nodejs-blog
+$ db.createCollection('articles')
+$ show collections;
+$ db.articles.insert({ title: "Article One", author: "rails365", body: "This is article one" });
+$ db.articles.find();
+$ db.articles.insert({ title: "Article Two", author: "rails365", body: "This is article two" });
+$ db.articles.find().pretty();
+
 # Q_A
 
 
@@ -21,6 +33,8 @@ Vue+Node前后端商城项目  https://www.bilibili.com/video/BV1vJ411s7dR?p=148
 找到一个up , 全栈技术专家, 他有一个系列课程  七天个人博客全栈开发（第四集）
 
 先跟着看看,目前感觉就是拼接知识点而已..
+
+对着原来的求知网站看的.
 
 ## 牢骚
 

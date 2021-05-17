@@ -22,30 +22,30 @@
     
     <div class="my-drawer mdui-drawer mdui-drawer-close" id="drawer">
       <div class="mdui-list">
-          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange mdui-list-item-active">
+          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{if home}} mdui-list-item-active {{/if}}">
             <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
             <div class="mdui-list-item-content">Home</div>
           </a>
 
           <div class="mdui-divider"></div>
 
-          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange ">
+          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{if home}} mdui-list-item-active {{/if}}">
             <i class="mdui-list-item-icon mdui-icon material-icons">library_books</i>
             <div class="mdui-list-item-content">New Article</div>
           </a>
 
-          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange ">
+          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{if home}} mdui-list-item-active {{/if}}">
             <i class="mdui-list-item-icon mdui-icon material-icons">storage</i>
             <div class="mdui-list-item-content">Articles </div>
           </a>
-          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange ">
+          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{if create}} mdui-list-item-active {{/if}}">
             <i class="mdui-list-item-icon mdui-icon material-icons">mode_edit</i>
             <div class="mdui-list-item-content">更新文档ing...</div>
           </a>
 
           <div class="mdui-divider"></div>
 
-          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange ">
+          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{if profie}} mdui-list-item-active {{/if}}">
             <i class="mdui-list-item-icon mdui-icon material-icons">description</i>
             <div class="mdui-list-item-content">个人资料</div>
           </a>

@@ -10,3 +10,7 @@
     display: block;
     margin: 0 auto;
 }
+
+#data-box {
+    display: none;
+}

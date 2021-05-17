@@ -24,11 +24,11 @@ router.get('/articles', home.articlesPage)
 
 router.get('/admin/login', admin.loginPage)
 router.get('/admin/articles', admin.articlesManage)
-router.get('/admin/article/create', admin.createArticle)
-router.post('/admin/article/add', admin.addArticle)
-router.delete('/admin/article/:id', admin.deleteArticle)
+router.get('/admin/article/add', admin.addArticle)
+router.post('/admin/article/create', admin.createArticle)
+router.delete('/admin/article/delete/:id', admin.deleteArticle)
 router.get('/admin/article/edit/:id', admin.editArticle)
-router.post('/admin/artilce/update/', admin.updateArticle)
+router.post('/admin/artilce/update/:id', admin.updateArticle)
 router.post('/admin/login', admin.login)
 
 module.exports = router;

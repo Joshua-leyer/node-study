@@ -1,4 +1,4 @@
-{{extend './manage.html'}}
+{{extend './adminLayout.html'}}
 
 
 {{ block 'content'}}
@@ -19,6 +19,7 @@
   </div>
 
 <script src="https://cdn.jsdelivr.net/npm/wangeditor@latest/dist/wangEditor.min.js"></script>
+
 <script >
 
     const E = window.wangEditor
@@ -42,17 +43,19 @@
           }
           $.ajax({
             type: "POST",
-            url: "/admin/article/add",
+            url: "/admin/article/create",
             data: data,
             error: function(request) {
               console.log('ajax post error')
             },
             success: function(msg){
               alert( "Data Saved: " + msg );
+              // window.location.href="/admin/articles"
+              // window.location("/admin/articles")
             }
           });
 
-      console.log(editor.txt.html());
+      // console.log(editor.txt.html());
     })
 
 

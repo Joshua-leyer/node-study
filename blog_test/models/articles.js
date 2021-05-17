@@ -10,7 +10,6 @@ const ArticleSchema = new Schema({
     auther: {
         default: '玉米羹',
         type: String,
-        required: true
     },
     body: {
         type: String,
