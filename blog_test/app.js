@@ -19,14 +19,16 @@ app.use(session({
     saveUninitialized: true
 }));
 
-// const flash = require('connect-flash')
-// app.use(flash())
+/* 这里是不使用express-messages
+const flash = require('connect-flash')
+app.use(flash())
 
-// app.use(function (req, res, next) {
-//     res.locals.errors = req.flash('error');
-//     res.locals.infos = req.flash('info');
-//     next();
-// });
+app.use(function (req, res, next) {
+    res.locals.errors = req.flash('error').toString();
+    res.locals.infos = req.flash('info').toString();
+    next();
+});
+*/
 
 app.use(require('connect-flash')());
 app.use(function (req, res, next) {

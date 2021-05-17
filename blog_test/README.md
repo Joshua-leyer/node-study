@@ -2,6 +2,16 @@
 
 
 
+
+# Codeing...
+
+
+## 2021年5月17日 19:33:39
+
+解决了ajax flash跳转页面的问题,现在尝试使用 express-message插件
+
+
+
 # learning log
 
 $ mongo
@@ -15,6 +25,9 @@ $ db.articles.insert({ title: "Article Two", author: "rails365", body: "This is 
 $ db.articles.find().pretty();
 
 # Q_A
+
+## 前端使用ajax请求后success 回调函数碰到express后端flash在locals里面挂载变量信息的时候的问题?
+
 
 
 

@@ -1,12 +1,22 @@
 {{extend './adminLayout.html'}}
+
+{{block 'listPage'}}
+mdui-list-item-active
+{{/block}}
+
+
+
+
 {{ block 'content'}}
-
 <!-- 好畸形啊 -->
-
 
 <link rel="stylesheet" href="/myCss/adminArticlesList.css">
 
 <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-green"><a href="/admin/article/add">增加</a></button>
+
+    {{if infos }}
+        <div> info 创建成功</div>
+    {{/if}}
 
     <table class="mdui-table" id="articles-box">
         <thead>

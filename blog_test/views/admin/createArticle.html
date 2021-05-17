@@ -1,6 +1,11 @@
 {{extend './adminLayout.html'}}
 
 
+{{block 'newPage'}}
+mdui-list-item-active
+{{/block}}
+
+
 {{ block 'content'}}
 
   <link rel="stylesheet" href="/myCss/adminArticleCreate.css">
@@ -48,10 +53,11 @@
             error: function(request) {
               console.log('ajax post error')
             },
-            success: function(msg){
-              alert( "Data Saved: " + msg );
+            success: function(response){
+              console.log('Data Saved: success')
               // window.location.href="/admin/articles"
-              // window.location("/admin/articles")
+              window.location.replace(response.url)
+              // alert( "Data Saved: " + msg );
             }
           });
 

@@ -6,39 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joshua Blog</title>
     {{ include '../layouts/layoutHead.html' }}
+    <link rel="stylesheet" href="/myCss/adminHeader.css">
 </head>
 <body>
   <div class="mdui-appbar-with-toolbar mg-app">
-    <div class="my-appbar mc-appbar mdui-appbar mdui-appbar-fixed">
-      <div class="mdui-toolbar mdui-color-theme">
-        <a href="javascript:;"id="left-drawer"  class="mdui-btn mdui-btn-icon">
-          <i class="mdui-icon material-icons">menu</i>
-        </a>
-        <a href="javascript:;" class="mdui-typo-headline">Joshua</a>
-        <div class="mdui-toolbar-spacer"></div>
-        <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>
-      </div>
-    </div>
+
+    {{ include '../layouts/admin_header.html'}}
     
     <div class="my-drawer mdui-drawer mdui-drawer-close" id="drawer">
       <div class="mdui-list">
-          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{if home}} mdui-list-item-active {{/if}}">
+          <a href="/admin/articles" class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{block 'homePage'}}{{/block}}">
             <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
             <div class="mdui-list-item-content">Home</div>
           </a>
 
           <div class="mdui-divider"></div>
 
-          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{if home}} mdui-list-item-active {{/if}}">
+          <a  href="/admin/article/add" class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{block 'newPage'}}{{/block}}">
             <i class="mdui-list-item-icon mdui-icon material-icons">library_books</i>
             <div class="mdui-list-item-content">New Article</div>
           </a>
 
-          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{if home}} mdui-list-item-active {{/if}}">
+          <a  href="/admin/articles" class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{block 'listPage'}}{{/block}}">
             <i class="mdui-list-item-icon mdui-icon material-icons">storage</i>
             <div class="mdui-list-item-content">Articles </div>
           </a>
-          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{if create}} mdui-list-item-active {{/if}}">
+
+          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{block 'codeing'}}{{/block}}">
             <i class="mdui-list-item-icon mdui-icon material-icons">mode_edit</i>
             <div class="mdui-list-item-content">更新文档ing...</div>
           </a>
@@ -54,6 +48,7 @@
           <p>joshua blog</p>
       </div>
     </div>
+
     <div class="mdui-container" id="page-index">
         {{ block 'content'}}
           !!!
@@ -61,6 +56,7 @@
     </div>
 
   </div>
+
 </body>
 
 <style>

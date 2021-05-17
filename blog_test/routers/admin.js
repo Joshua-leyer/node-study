@@ -1,12 +1,28 @@
 const { Article } = require('../models/articles')
+const { User } = require('../models/user')
+
+
+// POST   /admin/regiser  !! 未开通
+const register = (req, res) => {
+    const {username, password} = req.body
+    let user = new User({
+        username: req.body.username,
+        password: req.body.password
+    })
+    user.save(function(err) {
+        if (err) throw err;
+        return res.status(200).send({url: '/admin/articles'})
+    })
+}
+
+
 
 
 
 // post */admin/login
 const login = (req, res) =>{
-    console.log('get post is', req.body)
     const { username, password } = req.body
-    res.send(req.body)
+
 }
 
 // get /admin/login
@@ -19,9 +35,11 @@ const loginPage = (req, res) => {
 const articlesManage = (req, res) => {
     Article.find({}, function(err, data) {
         if (err) throw err;
-        console.log(data)
+        // console.log(data)
         // req.flash('error', '错误')
-        res.locals.current = 'home'
+        // res.locals.current = 'home'
+        req.flash('error', 'error flash')
+
         res.render('./admin/articlesList.html',{data})
     })
 }
@@ -40,13 +58,19 @@ const createArticle = (req, res) => {
     })
     article.save(function(err) {
         if (err) {
-            console.log(err);
-            next(err)
+            // console.log(err);
+            // next(err)
+            throw err
         }
         console.log('save article is', article)
-        // res.send('ok')
+        // req.flash("infotype", "success")
+        // 我草这里要 return 
+        // console.log(req)
+        req.flash("info", "文章创建成功")
+        return res.status(200).send({url: '/admin/articles'})
+        // return res.redirect('/admin/articles')
+        console.log('redirect done')
         // req.flash("info")
-        res.redirect('/admin/articles')
     })
 }
 
@@ -74,7 +98,7 @@ const editArticle = (req, res) => {
     // res.send('artilce edit page')
 }
 
-// post 更 新文章
+// post 更新文章
 const updateArticle = (req, res) => {
     let id = req.params.id
     let query = { _id: req.params.id}
