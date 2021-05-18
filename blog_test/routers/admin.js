@@ -9,14 +9,16 @@ const registerPage = (req, res) => {
 
 // POST   /admin/register  !! 未开通
 const register = async (req, res) => {
+    const { username, password } = req.body
+    // console.log('注册的用户信息', req.body)
     const user = await User.create({
         username: req.body.username,
         password: req.body.password
     })
-    console.log('register user is >>>', user)
+
+    // console.log('register user is >>>', user)
     res.send(user)
 }
-
 
 // post /admin/login
 const login = async (req, res) => {
@@ -39,9 +41,11 @@ const login = async (req, res) => {
     const token = jwt.sign({
         id: String(user._id)
     }, 'joshua')  //校验用的
-    console.log(token)
+    // console.log(token)
     // req.session.token = token
     // req.session.name = 'joshua login'
+    res.cookie('token1', 'joshua', {path: '/admin'})
+    console.log(user)
     res.render('./admin/profile.html', {
         user
     })
@@ -55,6 +59,9 @@ const loginPage = (req, res) => {
 
 // get /admin/articles
 const articlesManage = async (req, res) => {
+    let token = req.headers.cookie
+    
+    console.log(token)
     await Article.find({}, function(err, data) {
         if (err) throw err;
         // req.flash('error', '错误')

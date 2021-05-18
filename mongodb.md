@@ -1,14 +1,15 @@
+# [官网](http://mongoosejs.net/docs/documents.html)
+
+
 
 ## other home
 
-黑马day7bilibili/0607/mongoo 里面是练习代码
 
 http://www.nodeclass.com/api/mongoose.html
 
-https://cnodejs.org/topic/504b4924e2b84515770103dd
+[Mongoose学习参考文档](https://cnodejs.org/topic/504b4924e2b84515770103dd)
 
-https://www.jianshu.com/p/8af0552831f6
-
+[Mongoose教程翻译](https://www.jianshu.com/p/594a1b73e54a)
 
 =============================
 
@@ -29,6 +30,7 @@ const kitty = new Cat({ name: 'Zildjian' });
 kitty.save().then(() => console.log('meow'));
 
 ```
+
 在另一个教程看到有一个人这样写 >
 
 ```js
@@ -60,9 +62,8 @@ done > http://www.mongoosejs.net/docs/models.html ,在官网看model实例对象
 ? > 不明白连接服务器的时候 传递的对象参数是什么意思
 mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true, useUnifiedTopology: true});
 
-
-
 ```
+
 
 ```js
 上面的问题 官网代码> 
@@ -84,6 +85,39 @@ Tank.create({ size: 'small' }, function (err, small) {
 ? > handleError() 试一下回头
 
 ```
+
+
+## 通用模板
+
+```js
+  const mongoose = require('mongoose')
+
+  mongoose.connect('mongodb://localhost/blogdemo1', {
+      useMongoClient: true,
+      useCreateIndex: true
+  })
+
+  var Schema = mongoose.Schema
+
+  // 用户管理
+
+  var UserSchema = new Schema({
+      username: {
+          type: String,
+          required: true, // 必须接受到
+          nuique: true  // 唯一性
+      }
+  })
+
+
+  // module.exports = mongoose.model('User', userSchema)
+
+  const User = mongoose.model('User', UserSchema)
+  //那边接受的时候可以用解构的方式
+  module.exports = { User } 
+
+```
+
 
 
 http://www.mongoosejs.net/docs/guide.html
@@ -161,6 +195,9 @@ Tank.remove({ size: 'large' }, function (err) {
 ```
 
 
+## mongoodb > :
+
+[关于mongodb入手要了解的文章](https://jzleung.github.io/2016/08/13/mongoose-guide/)
 
 
 

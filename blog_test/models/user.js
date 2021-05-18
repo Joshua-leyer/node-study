@@ -10,9 +10,8 @@ const UserSchema = new Schema({
     password: {
         type: String,
         set(val) {
-            return require('bcrypt').hashSync(val, 4)
-        },
-        required: true
+            return require('bcrypt').hashSync(val, 10)
+        }
     }
 })
 

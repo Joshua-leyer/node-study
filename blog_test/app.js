@@ -3,6 +3,7 @@ const session = require('express-session')
 const path = require('path')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
 
 const app = express()
 const port = 3000
@@ -18,6 +19,8 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
+
+// app.use(cookieParser('joshua'));
 
 /* 这里是不使用express-messages */
 const flash = require('connect-flash')
