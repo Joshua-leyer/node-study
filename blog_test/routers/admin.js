@@ -2,44 +2,64 @@ const { Article } = require('../models/articles')
 const { User } = require('../models/user')
 
 
-// POST   /admin/regiser  !! 未开通
-const register = (req, res) => {
-    const {username, password} = req.body
-    let user = new User({
+// get /admin/gegister
+const registerPage = (req, res) => {
+    res.render('./admin/register.html')
+}
+
+// POST   /admin/register  !! 未开通
+const register = async (req, res) => {
+    const user = await User.create({
         username: req.body.username,
         password: req.body.password
     })
-    user.save(function(err) {
-        if (err) throw err;
-        return res.status(200).send({url: '/admin/articles'})
-    })
+    console.log('register user is >>>', user)
+    res.send(user)
 }
 
 
+// post /admin/login
+const login = async (req, res) => {
 
-
-
-// post */admin/login
-const login = (req, res) =>{
-    const { username, password } = req.body
-
+    const user = await User.findOne({
+        username: req.body.username
+    })
+    if (!user) {
+        return res.status(424).send({
+            message: 'user not found!'
+        })
+    }
+    const isPassword = require('bcrypt').compareSync(req.body.password, user.password)
+    if (!isPassword) {
+        return res.status(424).send({
+            message: 'password is error'
+        })
+    }
+    const jwt = require('jsonwebtoken')
+    const token = jwt.sign({
+        id: String(user._id)
+    }, 'joshua')  //校验用的
+    console.log(token)
+    // req.session.token = token
+    // req.session.name = 'joshua login'
+    res.render('./admin/profile.html', {
+        user
+    })
 }
 
 // get /admin/login
 const loginPage = (req, res) => {
-    res.render('./admin/login.html')
+    res.render('./admin/login.html', {login: true})
 }
 
 
 // get /admin/articles
-const articlesManage = (req, res) => {
-    Article.find({}, function(err, data) {
+const articlesManage = async (req, res) => {
+    await Article.find({}, function(err, data) {
         if (err) throw err;
-        // console.log(data)
         // req.flash('error', '错误')
         // res.locals.current = 'home'
         req.flash('error', 'error flash')
-
         res.render('./admin/articlesList.html',{data})
     })
 }
@@ -118,6 +138,8 @@ const updateArticle = (req, res) => {
 
 
 module.exports = {
+    register,
+    registerPage,
     login,
     addArticle,
     createArticle,

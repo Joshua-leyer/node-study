@@ -19,7 +19,7 @@ app.use(session({
     saveUninitialized: true
 }));
 
-/* 这里是不使用express-messages
+/* 这里是不使用express-messages */
 const flash = require('connect-flash')
 app.use(flash())
 
@@ -28,13 +28,13 @@ app.use(function (req, res, next) {
     res.locals.infos = req.flash('info').toString();
     next();
 });
-*/
 
-app.use(require('connect-flash')());
-app.use(function (req, res, next) {
-  res.locals.messages = require('express-messages')(req, res);
-  next();
-});
+
+// app.use(require('connect-flash')());
+// app.use(function (req, res, next) {
+//   res.locals.messages = require('express-messages')(req, res);
+//   next();
+// });
 
 app.engine('html', require('express-art-template'))
 

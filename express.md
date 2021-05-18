@@ -85,3 +85,9 @@ app.use(function(req, res, next) {
 
 
 
+### 
+
+
+
+
+User.db.dropCollection('users')
