@@ -1,0 +1,75 @@
+{{extend './adminLayout.html'}}
+
+
+{{block 'codeing'}}
+mdui-list-item-active
+{{/block}}
+
+
+
+
+{{ block 'content'}}
+<link rel="stylesheet" href="/myCss/adminArticleCreate.css">
+
+<div class="mdui-container">
+  <div class="tittle">
+    <div class="mdui-textfield mdui-textfield-floating-label">
+      <input id="title" class="mdui-textfield-input" type="text" placeholder="请输入文章" value="{{data.title}}" required maxlength="24"/>
+      <div class="mdui-textfield-error">请填写标题</div>
+    </div>
+  </div>
+  <!-- Create the editor container -->
+  <div id="edit">
+      {{#data.body}}
+  </div>
+
+  <button id="update" class="mdui-btn mdui-color-orange-300 mdui-ripple">update</button>
+
+  <div id="data-box" data-id="{{data._id}}"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/wangeditor@latest/dist/wangEditor.min.js"></script>
+
+<script >
+    let DataBox = $("#data-box")
+    const id = DataBox.attr("data-id")
+
+    console.log('box 存储了',id )
+
+  const E = window.wangEditor
+  const editor = new E('#edit')
+  editor.config.placeholder = '请输入正文'
+  editor.config.zIndex = 2
+  editor.config.height = 500
+    //   editor.txt.html()
+  // 或者 const editor = new E( document.getElementById('div1') )
+  editor.create()
+
+  const Button = document.querySelector('#update')
+  Button.addEventListener('click', function(e) {
+    e.preventDefault;
+        // ajax
+        let title = $("#title").val();
+        let articleContent = editor.txt.html();
+        let data = {
+          title: title,
+          body: articleContent
+        }
+        $.ajax({
+          type: "POST",
+          url: "/admin/artilce/update/:" + id,
+          data: data,
+          error: function(request) {
+            console.log('ajax post error')
+          },
+          success: function(msg){
+            alert( "Data Updated: " + msg );
+          }
+        });
+
+  })
+
+
+</script>
+
+{{/block}}

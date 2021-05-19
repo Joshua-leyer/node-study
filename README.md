@@ -97,3 +97,10 @@ serve.use('*', function(req, res, next) {
     res.send('router use ok!')
 })
 ```
+
+
+
+
+- router 动态路由代码放的顺序问题.
+
+[https://candyccat.github.io/2018/04/express%E8%B7%AF%E7%94%B1%E6%96%B9%E6%B3%95%E8%A7%A3%E6%9E%90.html]

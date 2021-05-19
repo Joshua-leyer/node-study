@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshua Blog</title>
+    {{ include '../layouts/layoutHead.html' }}
+    <link rel="stylesheet" href="/myCss/adminHeader.css">
+</head>
+<body>
+  <div class="mdui-appbar-with-toolbar mg-app">
+
+    {{ include '../layouts/admin_header.html'}}
+    
+    <div class="my-drawer mdui-drawer mdui-drawer-close" id="drawer">
+      <div class="mdui-list">
+          <a href="/admin/articles" class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{block 'homePage'}}{{/block}}">
+            <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+            <div class="mdui-list-item-content">Home</div>
+          </a>
+
+          <div class="mdui-divider"></div>
+
+          <a  href="/admin/article/add" class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{block 'newPage'}}{{/block}}">
+            <i class="mdui-list-item-icon mdui-icon material-icons">library_books</i>
+            <div class="mdui-list-item-content">New Article</div>
+          </a>
+
+          <a  href="/admin/articles" class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{block 'listPage'}}{{/block}}">
+            <i class="mdui-list-item-icon mdui-icon material-icons">storage</i>
+            <div class="mdui-list-item-content">Articles </div>
+          </a>
+
+          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{block 'codeing'}}{{/block}}">
+            <i class="mdui-list-item-icon mdui-icon material-icons">mode_edit</i>
+            <div class="mdui-list-item-content">更新文档ing...</div>
+          </a>
+
+          <div class="mdui-divider"></div>
+
+          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{if profie}} mdui-list-item-active {{/if}}">
+            <i class="mdui-list-item-icon mdui-icon material-icons">description</i>
+            <div class="mdui-list-item-content">个人资料</div>
+          </a>
+      </div>
+      <div class="copyright">
+          <p>joshua blog</p>
+      </div>
+    </div>
+
+    <div class="mdui-container" id="page-index">
+        {{ block 'content'}}
+          !!!
+        {{/block}}
+    </div>
+
+  </div>
+
+</body>
+
+<style>
+  .article-box {
+      background: coral;
+      margin:40px;
+      height: 100%;
+      width:100vh
+  }
+  .j-app {
+    box-sizing: border-box;
+    min-height: 100vh;
+  }
+  .my-drawer .mdui-list-item-active {
+    color: #e65100;
+    /* background:#e65100; */
+
+  }
+  .mdui-list-item-content {
+    transition: all .5s ease-out;
+  }
+  .my-drawer .mdui-list-item-active .mdui-list-item-content {
+    font-size: 1.5em;
+  }
+  .mdui-list {
+    flex: 1;
+  }
+  .mdui-list .mdui-list-item {
+    padding-left: 24px;
+    border-radius: 0px 24px 24px 0px;
+  }
+  .my-drawer {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 15px 15px 0;
+  }
+</style>
+<style>
+  #page-index {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 24px;
+  }
+</style>
+<script>
+  var inst = new mdui.Drawer('#drawer');
+
+  let SliderBtn = document.querySelector("#left-drawer")
+  SliderBtn.addEventListener('click', function() {
+    inst.toggle();
+  })
+</script>
+</html>

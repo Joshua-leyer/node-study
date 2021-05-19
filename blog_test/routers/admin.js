@@ -20,6 +20,13 @@ const register = async (req, res) => {
     res.send(user)
 }
 
+
+
+const Profile = async (req, res) => {
+    res.render("./admin/edit_profile.html")
+}
+
+
 // post /admin/login
 const login = async (req, res) => {
 
@@ -42,10 +49,9 @@ const login = async (req, res) => {
         id: String(user._id)
     }, 'joshua')  //校验用的
     // console.log(token)
-    // req.session.token = token
-    // req.session.name = 'joshua login'
-    res.cookie('token1', 'joshua', {path: '/admin'})
-    console.log(user)
+
+    res.cookie('user_id', user._id, {path: '/admin'})
+    console.log(user._id)
     res.render('./admin/profile.html', {
         user
     })
@@ -58,16 +64,19 @@ const loginPage = (req, res) => {
 
 
 // get /admin/articles
-const articlesManage = async (req, res) => {
-    let token = req.headers.cookie
-    
-    console.log(token)
-    await Article.find({}, function(err, data) {
-        if (err) throw err;
-        // req.flash('error', '错误')
-        // res.locals.current = 'home'
-        req.flash('error', 'error flash')
-        res.render('./admin/articlesList.html',{data})
+const articlesManage = (req, res) => {
+
+    let user_id = req.cookies.user_id
+
+    console.log('/admin/artilces 拿到的cookie.user_id >>>', user_id)
+    Article.find({}, function(err, data) {
+        if (err) {
+            throw err;
+        }
+        // req.flash('error', 'error flash')
+        else {
+            res.render('./admin/articlesList.html',{data})
+        }
     })
 }
 

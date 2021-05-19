@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/myCss/profile.css">
+</head>
+<body>
+    <header>
+
+        <div class="container">
+    
+            <div class="profile">
+    
+                <div class="profile-image">
+    
+                    <img src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" alt="">
+    
+                </div>
+                <!-- <script>
+                   
+                request({url:"xxx",method:"",body:{}})
+                     const baseUrl = 'http://xxx'
+                    function request(params,status){
+                        let headers = {}
+                        if(status){
+                            // const temp = `{{token}}`;
+                             window.localStorage.getItem('token',temp)
+                            headers.token = temp
+                        }
+                        axios({
+                            ...params,
+                            url:baseUrl + params.url,
+                            headers:{
+                                token:headers || null
+                            }
+                        })
+                    }
+                </script>    -->
+                <div class="profile-user-settings">
+                
+                    <h1 class="profile-user-name">{{ user.username }}</h1>
+    
+                    <button class="btn profile-edit-btn"><a href="/admin/articles"> Edit Profile</a></button>
+    
+                    <button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
+    
+                </div>
+    
+                <div class="profile-stats">
+    
+                    <ul>
+                        <li><span class="profile-stat-count">164</span> posts</li>
+                        <li><span class="profile-stat-count">188</span> followers</li>
+                        <li><span class="profile-stat-count">206</span> following</li>
+                    </ul>
+    
+                </div>
+    
+                <div class="profile-bio">
+    
+                    <p><span class="profile-real-name">Jane Doe</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit 📷✈️🏕️</p>
+    
+                </div>
+    
+            </div>
+            <!-- End of profile section -->
+    
+        </div>
+        <!-- End of container -->
+    
+    </header>
+    
+    <main>
+        <div class="container">
+    
+            {{include '../user/myImgs.html'}}
+            <!-- End of gallery -->
+    
+            <div class="loader"></div>
+    
+        </div>
+        <!-- End of container -->
+    
+    </main>
+</body>
+<script>
+function setCookie(cname,cvalue,exdays)
+{
+  var d = new Date();
+  d.setTime(d.getTime()+(exdays*24*60*60*1000));
+  var expires = "expires="+d.toGMTString();
+  document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookies.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+        }
+        return "";
+    }
+
+
+    console.log(getCookie('token1'))
+</script>
+</html>
