@@ -1,9 +1,11 @@
 const express = require('express')
 const session = require('express-session')
 const path = require('path')
-const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
+
+require('./database/init')
+require('./database/user')
 
 const app = express()
 const port = 3000
@@ -33,26 +35,13 @@ app.use(function (req, res, next) {
 });
 
 
-// app.use(require('connect-flash')());
-// app.use(function (req, res, next) {
-//   res.locals.messages = require('express-messages')(req, res);
-//   next();
-// });
+
 
 app.engine('html', require('express-art-template'))
 app.set('views', path.join(__dirname, './views')) 
 
 // console.log('path is ', path.join(__dirname, './views'))
 
-mongoose.connect("mongodb://localhost/test", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true 
-}, function(err) {
-    if (err) {
-        console.log('mongodb connect error :', err)
-    }
-    console.log('mongoose connect success!!!')
-})
 
 
 const router = require('./routes.js')

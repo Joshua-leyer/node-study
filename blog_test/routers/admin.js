@@ -1,5 +1,7 @@
-const { Article } = require('../models/articles')
-const { User } = require('../models/user')
+const bcrypt = require('bcrypt');
+
+const User = require('../database/user');
+const Article = require('../database/articles');
 
 
 // get /admin/gegister
@@ -11,13 +13,16 @@ const registerPage = (req, res) => {
 const register = async (req, res) => {
     const { username, password } = req.body
     // console.log('注册的用户信息', req.body)
-    const user = await User.create({
-        username: req.body.username,
-        password: req.body.password
-    })
+    // res.status(200).send(username, password)
+    console.log(username)
+    const userModel = await User.findOne({where: {username}});
+    if (userModel){
+        return res.send('用户已经存在')
+    } 
+    const user = await User.create({username, password: bcrypt.hashSync(password, 5)})
 
-    // console.log('register user is >>>', user)
-    res.send(user)
+    console.log('register user is >>>', user)
+    res.send({msg: 'register success!!'})
 }
 
 
@@ -29,30 +34,30 @@ const Profile = async (req, res) => {
 
 // post /admin/login
 const login = async (req, res) => {
-
-    const user = await User.findOne({
-        username: req.body.username
-    })
-    if (!user) {
+    const {username, password} = req.body
+    const userModel = await User.findOne({where: {username}})
+    if (!userModel) {
         return res.status(424).send({
             message: 'user not found!'
         })
     }
-    const isPassword = require('bcrypt').compareSync(req.body.password, user.password)
+    const isPassword = bcrypt.compareSync(req.body.password, userModel.dataValues.password)
     if (!isPassword) {
         return res.status(424).send({
             message: 'password is error'
         })
     }
-    const jwt = require('jsonwebtoken')
-    const token = jwt.sign({
-        id: String(user._id)
-    }, 'joshua')  //校验用的
-    // console.log(token)
-
-    res.cookie('user_id', user._id, {path: '/admin'})
-    console.log(user._id)
+    let id = userModel.dataValues.id
+    console.log('登录成功 user id is>>>', id)
+    res.send({msg: '登录成功'})
+    res.cookie('user_id', id, {path: '/admin'})
     res.redirect('/admin')
+}
+
+
+const authTest = function (req, res, next) {
+    const token = String(req.headers.authorization).splite(' ').pop()
+    console.log(token)
 }
 
 // get /admin/login
@@ -64,15 +69,15 @@ const loginPage = (req, res) => {
 // get /admin
 const dashboard = (req, res) => {
 
-    // let user_id = req.cookies.user_id
-    // console.log('/admin/artilces 拿到的cookie.user_id >>>', user_id)
-    Article.find({}, function(err, data) {
-        if (err) {
-            throw err;
-        } else {
-            res.render('./admin/dashboard.html',{data})
-        }
-    })
+    let user_id = req.cookies.user_id
+    console.log('/admin/artilces 拿到的cookie.user_id >>>', user_id)
+    // Article.find({}, function(err, data) {
+    //     if (err) {
+    //         throw err;
+    //     } else {
+    //         res.render('./admin/dashboard.html',{data})
+    //     }
+    // })
 }
 
 // get /admin/article/add   page
@@ -81,28 +86,11 @@ const addArticle = (req, res) => {
 }
 
 // post /admin/artilce/create
-const createArticle = (req, res) => {
+const createArticle = async (req, res) => {
     console.log(req.body);
-    let article = new Article({
-        title: req.body.title,
-        body: req.body.body
-    })
-    article.save(function(err) {
-        if (err) {
-            // console.log(err);
-            // next(err)
-            throw err
-        }
-        console.log('save article is', article)
-        // req.flash("infotype", "success")
-        // 我草这里要 return 
-        // console.log(req)
-        req.flash("info", "文章创建成功")
-        return res.status(200).send({url: '/admin/articles'})
-        // return res.redirect('/admin/articles')
-        console.log('redirect done')
-        // req.flash("info")
-    })
+    let article = await Article.build(req.body);
+    
+    // console.log(req.body.toJSON())
 }
 
 
@@ -149,6 +137,7 @@ const updateArticle = (req, res) => {
 
 
 module.exports = {
+    authTest,
     register,
     registerPage,
     login,
