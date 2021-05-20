@@ -5,7 +5,7 @@
 
 .header-banner {
   height: 74vh;
-  background-color: #2e4042;
+  /* background-color: #2e4042; */
 }
 
 .Mycontianer {
@@ -15,16 +15,14 @@
 .Mycontianer #left {
   min-height: 24px;
   height: auto;
-  border: 1px solid salmon;
+  /* border: 1px solid salmon; */
 }
-
-
 
 
 .Mycontianer #right {
   min-height: 24px;
   height: auto;
-  border: 1px solid saddlebrown;
+  /* border: 1px solid saddlebrown; */
   padding: 10px;
 }
 

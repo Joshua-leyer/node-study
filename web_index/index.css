@@ -2,10 +2,16 @@
   padding: 0;
   margin: 0;
 }
+body {
+  background: #eaeaea;
+}
 #header-banner {
+  min-height: 34vh;
   height: 48vh;
-  background-color: #2e4042;
+  background-color: #282931;
   position: relative;
+  background: url('index_bannerBg.jpg') no-repeat;
+  background-size: cover;
 }
 #header-banner .banner-box {
   position: absolute;
@@ -20,56 +26,87 @@
 }
 #header-banner .banner-box .avator {
   position: relative;
-  height: 100px;
-  width: 100px;
+  height: 124px;
+  width: 124px;
   background-color: coral;
   top: -24px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 #header-banner .banner-box .breadcrumb {
   background-color: transparent;
-  font-size: 2.4rem;
+  font-size: 3rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+#header-banner .banner-box .breadcrumb span {
+  text-align: center;
 }
 #header-banner .banner-box .breadcrumb a {
   color: white;
+  position: relative;
   transition: all 0.5s ease;
   text-decoration: none;
 }
 #header-banner .banner-box .breadcrumb a:hover {
+  transform: scale(1.24);
   color: #3f51b5;
+}
+#header-banner .banner-box #my-connect {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
 }
 #header-banner .banner-box span {
   display: inline-block;
   color: white;
-  height: 24px;
-  width: 24px;
+  height: 48px;
+  width: 48px;
 }
-.Mycontianer {
-  padding: 24px 0 24px 0;
+#header-banner .banner-box span img {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  transition: all 0.2s ease;
 }
-.Mycontianer #left {
+#header-banner .banner-box span img:hover {
+  transform: scale(1.24);
+}
+.Mycontainer {
+  margin: 60px 0;
+  display: block;
+  height: 100%;
+  position: relative;
+}
+.Mycontainer #left {
   min-height: 24px;
-  height: auto;
   border: 1px solid salmon;
 }
-.Mycontianer #left #myProfile div {
+.Mycontainer #left #myProfile {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
+}
+.Mycontainer #left #myProfile div {
   display: grid;
   grid-template-columns: 50% 50%;
   font-size: 1em;
   margin: 4px 0;
 }
-.Mycontianer #left #myProfile span:nth-child(1) {
+.Mycontainer #left #myProfile span:nth-child(1) {
   font-weight: bolder;
 }
-.Mycontianer #left #myProfile span:nth-child(2) {
+.Mycontainer #left #myProfile span:nth-child(2) {
   color: gray;
 }
-.Mycontianer #right {
+.Mycontainer #right {
   min-height: 24px;
   height: auto;
   border: 1px solid saddlebrown;
   padding: 10px;
 }
-.Mycontianer .blog-card {
+.Mycontainer .blog-card {
   height: 18em;
   width: 98%;
   border: 1px solid black;
@@ -78,10 +115,10 @@
   overflow: hidden;
   margin: 10px 0 10px 0;
 }
-.Mycontianer .blog-card h1 {
+.Mycontainer .blog-card h1 {
   margin: 0;
 }
-.Mycontianer .blog-card p {
+.Mycontainer .blog-card p {
   margin: 10px 0 10px 14px;
   min-height: 24px;
   max-height: 120px;
@@ -91,7 +128,7 @@
   font-size: 1.24em;
   background-color: cornflowerblue;
 }
-.Mycontianer .blog-card span {
+.Mycontainer .blog-card span {
   position: absolute;
   bottom: 10px;
   left: 30%;
@@ -100,15 +137,10 @@
   background-color: #ffedf0;
   display: flex;
   vertical-align: middle;
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
-.Mycontianer .blog-card span a {
-  text-align: center;
-  flex-grow: 1;
-}
-.Mycontianer .blog-card span a.read-more {
-  flex-grow: 3;
+.Mycontainer .blog-card span a.read-more {
   margin: 0 10px;
   right: 10px;
-  font-size: 2rem;
+  font-size: 2.24rem;
 }

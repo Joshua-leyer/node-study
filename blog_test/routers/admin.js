@@ -52,9 +52,7 @@ const login = async (req, res) => {
 
     res.cookie('user_id', user._id, {path: '/admin'})
     console.log(user._id)
-    res.render('./admin/profile.html', {
-        user
-    })
+    res.redirect('/admin')
 }
 
 // get /admin/login
@@ -63,19 +61,16 @@ const loginPage = (req, res) => {
 }
 
 
-// get /admin/articles
-const articlesManage = (req, res) => {
+// get /admin
+const dashboard = (req, res) => {
 
-    let user_id = req.cookies.user_id
-
-    console.log('/admin/artilces 拿到的cookie.user_id >>>', user_id)
+    // let user_id = req.cookies.user_id
+    // console.log('/admin/artilces 拿到的cookie.user_id >>>', user_id)
     Article.find({}, function(err, data) {
         if (err) {
             throw err;
-        }
-        // req.flash('error', 'error flash')
-        else {
-            res.render('./admin/articlesList.html',{data})
+        } else {
+            res.render('./admin/dashboard.html',{data})
         }
     })
 }
@@ -160,7 +155,7 @@ module.exports = {
     addArticle,
     createArticle,
     loginPage,
-    articlesManage,
+    dashboard,
     deleteArticle,
     editArticle,
     updateArticle

@@ -1,0 +1,73 @@
+.Mycontainer {
+  margin: 60px 0;
+  display: block;
+  height: 100%;
+  /* position: relative; */
+}
+.Mycontainer #left {
+  min-height: 24px;
+  position: sticky;
+  top: 124px;
+  /* border: 1px solid salmon; */
+}
+.Mycontainer #left #myProfile {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
+}
+.Mycontainer #left #myProfile div {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  font-size: 1em;
+  margin: 4px 0;
+}
+.Mycontainer #left #myProfile span:nth-child(1) {
+  font-weight: bolder;
+}
+.Mycontainer #left #myProfile span:nth-child(2) {
+  color: gray;
+}
+.Mycontainer #right {
+  min-height: 24px;
+  height: auto;
+  border: 1px solid saddlebrown;
+  padding: 10px;
+}
+.Mycontainer .blog-card {
+  height: 18em;
+  width: 98%;
+  border: 1px solid black;
+  background-color: tomato;
+  position: relative;
+  overflow: hidden;
+  margin: 10px 0 10px 0;
+}
+.Mycontainer .blog-card h1 {
+  margin: 0;
+}
+.Mycontainer .blog-card p {
+  margin: 10px 0 10px 14px;
+  min-height: 24px;
+  max-height: 120px;
+  overflow: hidden;
+  padding: 4px;
+  font-family: cursive;
+  font-size: 1.24em;
+  background-color: cornflowerblue;
+}
+.Mycontainer .blog-card span {
+  position: absolute;
+  bottom: 10px;
+  left: 30%;
+  width: 64%;
+  height: 30px;
+  background-color: #ffedf0;
+  display: flex;
+  vertical-align: middle;
+  justify-content: flex-end;
+}
+.Mycontainer .blog-card span a.read-more {
+  margin: 0 10px;
+  right: 10px;
+  font-size: 2.24rem;
+}

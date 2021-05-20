@@ -1,112 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joshua Blog</title>
-    {{ include '../layouts/layoutHead.html' }}
-    <link rel="stylesheet" href="/myCss/adminHeader.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="/MDB/css/bootstrap.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="/MDB/css/mdb.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="/MDB/css/style.css" rel="stylesheet">
+
 </head>
-<body>
-  <div class="mdui-appbar-with-toolbar mg-app">
 
-    {{ include '../layouts/admin_header.html'}}
-    
-    <div class="my-drawer mdui-drawer mdui-drawer-close" id="drawer">
-      <div class="mdui-list">
-          <a href="/admin/articles" class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{block 'homePage'}}{{/block}}">
-            <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
-            <div class="mdui-list-item-content">Home</div>
-          </a>
+<body class="grey lighten-3">
 
-          <div class="mdui-divider"></div>
+  <!--Main Navigation-->
+  <header>
 
-          <a  href="/admin/article/add" class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{block 'newPage'}}{{/block}}">
-            <i class="mdui-list-item-icon mdui-icon material-icons">library_books</i>
-            <div class="mdui-list-item-content">New Article</div>
-          </a>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+      <div class="container-fluid">
 
-          <a  href="/admin/articles" class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{block 'listPage'}}{{/block}}">
-            <i class="mdui-list-item-icon mdui-icon material-icons">storage</i>
-            <div class="mdui-list-item-content">Articles </div>
-          </a>
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" href="#" target="_blank">
+          <strong class="blue-text">Joshua</strong>
+        </a>
 
-          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{block 'codeing'}}{{/block}}">
-            <i class="mdui-list-item-icon mdui-icon material-icons">mode_edit</i>
-            <div class="mdui-list-item-content">更新文档ing...</div>
-          </a>
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <div class="mdui-divider"></div>
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-          <a class="mdui-list-item mdui-ripple mdui-ripple-deep-orange {{if profie}} mdui-list-item-active {{/if}}">
-            <i class="mdui-list-item-icon mdui-icon material-icons">description</i>
-            <div class="mdui-list-item-content">个人资料</div>
-          </a>
+          <!-- Left -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link waves-effect" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="#" target="_blank">About
+                Me</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link waves-effect" href="#getting-started/download/"
+                target="_blank">Free
+                download</a>
+            </li> -->
+            <!-- <li class="nav-item">
+              <a class="nav-link waves-effect" href="#" target="_blank">Free
+                tutorials</a>
+            </li> -->
+          </ul>
+
+          <!-- Right -->
+          <ul class="navbar-nav nav-flex-icons">
+
+            <li class="nav-item">
+              <a href="#" class="nav-link border border-light rounded waves-effect"
+                target="_blank">
+                <i class="fab fa-github mr-2"></i>My GitHub
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
       </div>
-      <div class="copyright">
-          <p>joshua blog</p>
+    </nav>
+    <!-- Navbar -->
+
+    <!-- Sidebar -->
+    <div class="sidebar-fixed position-fixed">
+
+      <a class="logo-wrapper waves-effect" href="/">
+        <img src="https://mdbootstrap.com/img/logo/mdb-email.png" class="img-fluid" alt="">
+      </a>
+
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item active waves-effect">
+          <i class="fas fa-chart-pie mr-3"></i>Dashboard
+        </a>
+        <a href="#" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-user mr-3"></i>Profile</a>
+        <a href="#" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-table mr-3"></i>Tables</a>
+        <a href="#" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-map mr-3"></i>My like...</a>
       </div>
+
     </div>
+    <!-- Sidebar -->
 
-    <div class="mdui-container" id="page-index">
-        {{ block 'content'}}
-          !!!
-        {{/block}}
+  </header>
+  <!--Main Navigation-->
+
+  <!--Main layout-->
+  <main class="pt-5 mx-lg-5">
+    <div class="container-fluid mt-5">
+
+      <!-- Heading -->
+      <div class="card mb-4 wow fadeIn">
+
+        <!--Card content-->
+        <div class="card-body d-sm-flex justify-content-between">
+
+          <h4 class="mb-2 mb-sm-0 pt-1">
+            <a href="#" target="_blank">Home Page</a>
+            <span>/</span>
+            <span>Dashboard</span>
+          </h4>
+
+          <form class="d-flex justify-content-center">
+            <!-- Default input -->
+            <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
+            <button class="btn btn-primary btn-sm my-0 p" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+        <div class="col-md-10 mb-2">
+
+          {{block 'content'}}
+            ！！！424
+          {{/block}}
+
+
+
+        </div>
+
+
+      </div>
+
     </div>
+  </main>
+  <!--Main layout-->
 
-  </div>
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="/MDB/js/jquery-3.4.1.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="/MDB/js/popper.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="/MDB/js/bootstrap.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="/MDB/js/mdb.js"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
 
+  </script>
+
+
+
+  
 </body>
 
-<style>
-  .article-box {
-      background: coral;
-      margin:40px;
-      height: 100%;
-      width:100vh
-  }
-  .j-app {
-    box-sizing: border-box;
-    min-height: 100vh;
-  }
-  .my-drawer .mdui-list-item-active {
-    color: #e65100;
-    /* background:#e65100; */
-
-  }
-  .mdui-list-item-content {
-    transition: all .5s ease-out;
-  }
-  .my-drawer .mdui-list-item-active .mdui-list-item-content {
-    font-size: 1.5em;
-  }
-  .mdui-list {
-    flex: 1;
-  }
-  .mdui-list .mdui-list-item {
-    padding-left: 24px;
-    border-radius: 0px 24px 24px 0px;
-  }
-  .my-drawer {
-    display: flex;
-    flex-direction: column;
-    border-radius: 0 15px 15px 0;
-  }
-</style>
-<style>
-  #page-index {
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 24px;
-  }
-</style>
-<script>
-  var inst = new mdui.Drawer('#drawer');
-
-  let SliderBtn = document.querySelector("#left-drawer")
-  SliderBtn.addEventListener('click', function() {
-    inst.toggle();
-  })
-</script>
 </html>

@@ -28,13 +28,13 @@ const auth = function (req, res, next) {
 // 前面 =================
 
 router.get('/', home.index)
-router.get('/article/:id', home.watchArticle)
+router.get('/post/:id', home.watchArticle)
 router.get('/articles', home.articlesPage)
 
 // 后台 ================
+router.get('/admin', auth, admin.dashboard)
 router.get('/admin/register', admin.registerPage)
 router.get('/admin/login', admin.loginPage)
-router.get('/admin/articles', auth, admin.articlesManage)
 router.get('/admin/article/add', admin.addArticle)
 
 router.post('/admin/article/create', admin.createArticle)

@@ -1,0 +1,75 @@
+header {
+  height: 8vh;
+  background-color: salmon;
+}
+body {
+  background-color: #eaeaea;
+}
+
+
+
+.Mycontainer {
+  margin: 80px 0px;
+}
+.Mycontainer article {
+  background-color: white;
+  margin-top: 24px;
+  min-height: 424px;
+  padding: 24px;
+}
+.Mycontainer .banner-box {
+  min-height: 400px;
+  max-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Mycontainer .banner-box .avator {
+  height: 124px;
+  width: 124px;
+  background: royalblue;
+  border-radius: 50%;
+}
+.Mycontainer .banner-box .avator img {
+  height: 100%;
+  width: auto;
+}
+.Mycontainer .banner-box .breadcrumb {
+  background-color: transparent;
+  font-size: 1.7rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.Mycontainer .banner-box .breadcrumb span {
+  text-align: center;
+  margin: 0 10px;
+}
+.Mycontainer .banner-box .breadcrumb a {
+  font-size: 18px;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+.Mycontainer .banner-box .breadcrumb a:hover {
+  transform: scale(1.24);
+  color: #a04bff;
+}
+.Mycontainer .banner-box #my-connect {
+  align-self: stretch;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.Mycontainer .banner-box #my-connect span {
+  display: inline-block;
+}
+.Mycontainer .banner-box #my-connect span img {
+  height: 40px;
+  width: auto;
+  transition: all 0.5s ease;
+}
+.Mycontainer .banner-box #my-connect span img:hover {
+  transform: scale(1.3);
+}

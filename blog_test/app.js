@@ -38,10 +38,11 @@ app.use(function (req, res, next) {
 //   res.locals.messages = require('express-messages')(req, res);
 //   next();
 // });
+
 app.engine('html', require('express-art-template'))
 app.set('views', path.join(__dirname, './views')) 
 
-console.log('path is ', path.join(__dirname, './views'))
+// console.log('path is ', path.join(__dirname, './views'))
 
 mongoose.connect("mongodb://localhost/test", {
     useNewUrlParser: true,
