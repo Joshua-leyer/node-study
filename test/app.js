@@ -1,5 +1,5 @@
 const express = require('express')
-const mongoose = require('mongoose')
+const { Sequelize } = require('sequelize')
 const bodyParser = require('body-parser')
 
 const serve = express()
@@ -12,27 +12,6 @@ serve.use(bodyParser.json());
 // 解析 application/x-www-form-urlencoded
 serve.use(bodyParser.urlencoded({ extended: false }));
 
-mongoose.connect("mongodb://localhost/test", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true 
-}, function(err) {
-    if (err) {
-        console.log('mongodb connect error :', err)
-    }
-    console.log('mongoose connect success!!!')
-})
-
-
-const { Student } = require('./mongo')
-
-// let db = mongoose.connection
-// db.once('open', function(){
-//     console.log('connected successed')
-// })
-
-// db.on('error', function(err) {
-//     console.log(err)
-// })
 
 
 serve.get('/', function(req, res) {
@@ -42,7 +21,6 @@ serve.get('/', function(req, res) {
 })
 
 
-const { Article } = require('./mongo.js')
 serve.post('/articles/add', function(req, res) {
     //实例化操作
     var one = new Article({
