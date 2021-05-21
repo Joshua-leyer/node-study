@@ -49,7 +49,7 @@ const login = async (req, res) => {
     }
     let id = userModel.dataValues.id
     console.log('登录成功 user id is>>>', id)
-    res.send({msg: '登录成功'})
+    // res.send({msg: '登录成功'})
     res.cookie('user_id', id, {path: '/admin'})
     res.redirect('/admin')
 }
@@ -62,22 +62,24 @@ const authTest = function (req, res, next) {
 
 // get /admin/login
 const loginPage = (req, res) => {
+    console.log('login html')
     res.render('./admin/login.html', {login: true})
 }
 
 
 // get /admin
-const dashboard = (req, res) => {
+const dashboard = async (req, res) => {
 
     let user_id = req.cookies.user_id
     console.log('/admin/artilces 拿到的cookie.user_id >>>', user_id)
-    // Article.find({}, function(err, data) {
-    //     if (err) {
-    //         throw err;
-    //     } else {
-    //         res.render('./admin/dashboard.html',{data})
-    //     }
-    // })
+    // const data = await Article.findAll();
+    // const data = await Article.findOne({where: {id:1}})
+    // console.log('All articles is:', JSON.stringify(data, null, 2))
+    // res.send('dashboard')`
+    data = JSON.stringify(data)
+    console.log(data)
+    // data = JSON.parse(data);
+    res.render('./admin/test.html', )
 }
 
 // get /admin/article/add   page
@@ -85,12 +87,13 @@ const addArticle = (req, res) => {
     res.render('./admin/createArticle.html')
 }
 
-// post /admin/artilce/create
+// post /admin/article/create
 const createArticle = async (req, res) => {
     console.log(req.body);
-    let article = await Article.build(req.body);
+    // const article = await Article.create({tittle: 'jiaopsdfi', auther: 'joshua', body: 'ajsidfopausidofnas'})
     
-    // console.log(req.body.toJSON())
+    console.log(article.toJSON())
+    res.send('article create success')
 }
 
 

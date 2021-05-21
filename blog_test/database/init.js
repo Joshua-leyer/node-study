@@ -23,3 +23,5 @@ db
 
 
 module.exports = {Sequelize, db}
+
+

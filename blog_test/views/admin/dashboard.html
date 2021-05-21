@@ -23,11 +23,9 @@
             <!-- Table body -->
             <tbody>
 
-              {{each data value index}}
+              {{each data }}
                 <tr>
-                  <th scope="row">{{index}}</th>
-                  <td>{{value.title}}</td>
-                  <td>{{value.created}}</td>
+                  <th scope="row">{{$index}}</th>
                   <td>
                     
                   </td>

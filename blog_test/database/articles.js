@@ -27,5 +27,8 @@ const Article = db.define('article', {
 })
 
 
+Article.sync().then(()=>{
+    console.log('Article表同步')
+})
 
 module.exports = Article

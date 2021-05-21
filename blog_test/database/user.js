@@ -20,9 +20,9 @@ const User = db.define('user', {
 
 
 
-// User.sync().then(()=>{
-//     console.log('User表同步')
-// })
+User.sync().then(()=>{
+    console.log('User表同步')
+})
 
 
 module.exports = User

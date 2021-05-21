@@ -27,8 +27,8 @@ const auth = function (req, res, next) {
 
 // 后台 ================
 router.get('/admin', auth, admin.dashboard)
-// router.get('/admin/register', admin.registerPage)
-// router.get('/admin/login', admin.loginPage)
+router.get('/admin/register', admin.registerPage)
+router.get('/admin/login', admin.loginPage)
 // router.get('/admin/article/add', admin.addArticle)
 
 router.post('/admin/article/create', admin.createArticle)
