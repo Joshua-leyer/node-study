@@ -1,6 +1,6 @@
 
 const { Article } = require('../models/articles')
-const ObjectId = require('mongodb').ObjectId;
+let mongoose = require('mongoose');
 
 // get / 
 const index = async (req, res) => {
@@ -19,16 +19,20 @@ const index = async (req, res) => {
 }
 
 // article page  /post/:id
-const watchArticle = (req, res) => {
-    let id = req.params.id
-    Article.findById({_id: ObjectId(id)}, function(err, data) {
-        if (err) throw err;
-        else {
-            console.log(data)
-            // console.log('req.url is ', req.url)
-            return res.render('./user/post.html', {data})
-        }
-    })
+const watchArticle = async (req, res) => {
+    // let id = req.params.id;
+    // var myId = JSON.parse(req.params.id);
+    // var id = mongoose.Types.ObjectId(req.params.id);
+    // console.log('req,parms is ', id)
+    // Article.findOne({"_id": ObjectId(req.params.id).toString() }, function(err, data) {
+    //     if (err) throw err;
+    //     else {
+    //         // data.toObject({ getters: true })
+    //         console.log(data)
+    //         // console.log('req.url is ', req.url)
+    //         return res.render('./user/post.html', {data})
+    //     }
+    // })
 }
 
 

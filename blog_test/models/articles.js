@@ -20,6 +20,7 @@ const ArticleSchema = new Schema({
         default: Date.now()
     }
 })
+
 ArticleSchema.set('toObject', { virtuals: true })
 
 const Article = mongoose.model('Article', ArticleSchema)
