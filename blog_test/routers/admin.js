@@ -70,6 +70,7 @@ const dashboard = (req, res) => {
         if (err) {
             throw err;
         } else {
+
             res.render('./admin/dashboard.html',{data})
         }
     })
