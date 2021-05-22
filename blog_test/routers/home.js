@@ -1,34 +1,39 @@
 
-const { Article } = require('../models/articles')
-const ObjectId = require('mongodb').ObjectId;
+const Article = require('../database/articles.js')
 
 // get / 
 const index = async (req, res) => {
-    await Article.find({}, function(err, data) {
-        if (err) throw err;
-        else {
-            console.log('/拿到的文章是', data)
-            
-            // data.forEach(item => {
-            //     console.log(typeof item.title)
-            // })
-
-            res.render('./user/index.html', {data})
-        }
-    })
+    console.log('/index 首页')
+    // await Article.create({tittle:'jasdifpajsdi',body:"jaisdufija"});
+    try {
+        let data = await Article.findAll()
+        data = JSON.stringify(data);
+        data = JSON.parse(data);
+        console.log(data)
+        console.log('get / 路由 首页 ')
+        res.render('./user/index.html', {data})
+    } catch (error) {
+        console.log(error)
+    }
 }
 
+const log = console.log
 // article page  /post/:id
-const watchArticle = (req, res) => {
-    let id = req.params.id
-    Article.findById({_id: ObjectId(id)}, function(err, data) {
-        if (err) throw err;
-        else {
-            console.log(data)
-            // console.log('req.url is ', req.url)
-            return res.render('./user/post.html', {data})
-        }
-    })
+async function watchArticle(req, res){
+    console.log('我运行了几遍?')
+    
+    let { id } = req.params
+    // const data = await Article.findOne({where: {"id": id}})
+    // try {
+    //     log(123)
+    //     data = JSON.stringify(data);
+    //     data = JSON.parse(data);
+    //     console.log('/post get data is', data)
+    //     res.render('./user/post.html', {data: data})
+    // } catch (e) {
+    //     console.log(e)
+    // }
+    // log('查询完成=================================')
 }
 
 

@@ -69,17 +69,13 @@ const loginPage = (req, res) => {
 
 // get /admin
 const dashboard = async (req, res) => {
+    // let user_id = req.cookies.user_id
 
-    let user_id = req.cookies.user_id
-    console.log('/admin/artilces 拿到的cookie.user_id >>>', user_id)
-    // const data = await Article.findAll();
-    // const data = await Article.findOne({where: {id:1}})
-    // console.log('All articles is:', JSON.stringify(data, null, 2))
-    // res.send('dashboard')`
-    data = JSON.stringify(data)
-    console.log(data)
-    // data = JSON.parse(data);
-    res.render('./admin/test.html', )
+    let data = await Article.findAll();
+    /* !!解决难道数据拿到后不是标准对象格式问题. mongoose也是一球样. */
+    data = JSON.stringify(data);
+    data = JSON.parse(data);
+    res.render('./admin/dashboard.html', {data: data})
 }
 
 // get /admin/article/add   page

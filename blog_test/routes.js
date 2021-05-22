@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 const admin = require('./routers/admin')
-// const home = require('./routers/home')
+const home = require('./routers/home')
 
 
 const auth = function (req, res, next) {
@@ -21,11 +21,11 @@ const auth = function (req, res, next) {
 
 // 前面 =================
 
-// router.get('/', home.index)
-// router.get('/post/:id', home.watchArticle)
+router.get('/post/:id', home.watchArticle)
+router.get('/', home.index)
 // router.get('/articles', home.articlesPage)
 
-// 后台 ================
+// 后台 ================ha
 router.get('/admin', auth, admin.dashboard)
 router.get('/admin/register', admin.registerPage)
 router.get('/admin/login', admin.loginPage)
