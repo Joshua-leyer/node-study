@@ -21,7 +21,7 @@ const ArticleSchema = new Schema({
     }
 })
 
-ArticleSchema.set('toObject', { virtuals: true })
+// ArticleSchema.set('toObject', { virtuals: true })
 
 const Article = mongoose.model('Article', ArticleSchema)
 

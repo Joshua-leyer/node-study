@@ -20,7 +20,19 @@ const index = async (req, res) => {
 
 // article page  /post/:id
 const watchArticle = async (req, res) => {
-    // let id = req.params.id;
+    // let id = mongoose.Types.ObjectId(req.params.id);
+    let id = req.params.id
+    console.log(id)
+    // let article = await Article.findById(id);
+    Article.findById(id, function(err, data) {
+        if (err) throw err;
+        data = JSON.stringify(data);
+        data = JSON.parse(data)
+        console.log(data)
+        res.render('./user/post.html', {article: data})
+    })
+    // console.log(article)
+    // res.render('./user/post.html', article)
     // var myId = JSON.parse(req.params.id);
     // var id = mongoose.Types.ObjectId(req.params.id);
     // console.log('req,parms is ', id)

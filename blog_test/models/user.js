@@ -20,7 +20,7 @@ const UserSchema = new Schema({
 })
 
 
-UserSchema.set('toObject', { virtuals: true })
+// UserSchema.set('toObject', { virtuals: true })
 
 const User = mongoose.model('User', UserSchema)
 

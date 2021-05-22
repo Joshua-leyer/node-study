@@ -70,7 +70,7 @@ const dashboard = (req, res) => {
         if (err) {
             throw err;
         } else {
-
+            console.log('dashboard get articles is', data)
             res.render('./admin/dashboard.html',{data})
         }
     })
@@ -82,12 +82,19 @@ const addArticle = (req, res) => {
 }
 
 // post /admin/artilce/create
-const createArticle = (req, res) => {
+const createArticle = async (req, res) => {
     console.log(req.body);
     let article = new Article({
         title: req.body.title,
         body: req.body.body
     })
+    try {
+        article = await article.save()
+        res.redirect(`/post/${article.id}`)
+    } catch (error) {
+        res.render('/admin/arcieles/add', {article: article})
+    }
+
     article.save(function(err) {
         if (err) {
             // console.log(err);
