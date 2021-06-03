@@ -1,0 +1,30 @@
+
+<link rel="stylesheet" href="/myCss/web_container.css">
+
+<div class="Mycontainer row">
+  <div id="left" class="col-md-2 col-md-offset-1 
+                      col-sm-2 hidden-sm
+                      col-xs-12 hidden-xs">
+      <div id="myProfile">
+          <div><span>Full Name:</span> <span>糯米粥和玉米羹</span></div>
+          <div><span>Phone:</span> <span>+ 187 3482 1912</span></div>
+          <div><span>Email:</span> <span>joshuaxin@163.com</span></div>
+          <div><span>Github</span> <span>www.github.com</span></div>
+      </div>
+  </div>
+  <div id="right" class="col-md-6 col-md-offset-1
+                     col-sm-10 col-sm-offset-1
+                     col-xs-12">
+
+    {{each doc value index}}
+        <div class="blog-card">
+            <h1>{{ value.title }}</h1>
+            <p>{{ value.body }}</p>
+            <span>
+                <a href="/post/{{ value._id.toString() }}" class="read-more">Read More</a>
+            </span>
+        </div>
+    {{/each}}
+
+  </div>
+</div>

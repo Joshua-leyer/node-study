@@ -1,5 +1,6 @@
 const { Article } = require('../models/articles')
 const { User } = require('../models/user')
+const mongoose = require('mongoose');
 
 
 // get /admin/gegister
@@ -49,7 +50,7 @@ const login = async (req, res) => {
         id: String(user._id)
     }, 'joshua')  //校验用的
     // console.log(token)
-
+    
     res.cookie('user_id', user._id, {path: '/admin'})
     console.log(user._id)
     res.redirect('/admin')
@@ -70,11 +71,11 @@ const dashboard = (req, res) => {
         if (err) {
             throw err;
         } else {
-
             res.render('./admin/dashboard.html',{data})
         }
     })
 }
+
 
 // get /admin/article/add   page
 const addArticle = (req, res) => {

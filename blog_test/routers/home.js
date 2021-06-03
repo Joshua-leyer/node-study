@@ -1,7 +1,8 @@
 
 const { Article } = require('../models/articles')
+const mongoose = require('mongoose');
 const ObjectId = require('mongodb').ObjectId;
-
+const log = console.log
 // get / 
 const index = async (req, res) => {
     await Article.find({}, function(err, data) {
@@ -20,13 +21,15 @@ const index = async (req, res) => {
 
 // article page  /post/:id
 const watchArticle = (req, res) => {
-    let id = req.params.id
-    Article.findById({_id: ObjectId(id)}, function(err, data) {
+    let id = mongoose.Types.ObjectId(req.params.id);
+    log('----------------------------------')
+    Article.findById({_id: id}).lean().exec(function(err, data) {
+        log('=========================================')
         if (err) throw err;
         else {
             console.log(data)
             // console.log('req.url is ', req.url)
-            return res.render('./user/post.html', {data})
+            res.render('./user/post.html', {data})
         }
     })
 }
