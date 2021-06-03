@@ -57,15 +57,17 @@ router.post('/login', async (req, res) => {
         username: req.body.username
     })
     if (!user) {
-        return res.status(424).send({
-            message: 'user not found!'
-        })
+        return res.status(424).redirect('/admin/login')
+        // return res.status(424).send({
+        //     message: 'user not found!'
+        // })
     }
     const isPassword = require('bcrypt').compareSync(req.body.password, user.password)
     if (!isPassword) {
-        return res.status(424).send({
-            message: 'password is error'
-        })
+        return res.status(424).redirect('/admin/login')
+        // return res.status(424).send({
+        //     message: 'password is error'
+        // })
     }
     const jwt = require('jsonwebtoken')
     const token = jwt.sign({
