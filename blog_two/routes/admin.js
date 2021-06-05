@@ -117,15 +117,25 @@ router.get('/add', auth, (req, res) => {
 
 
 router.post('/create', auth, async (req, res) => {
-    let article = new Article({
+    // let article = new Article({
+    //     tittle: req.body.tittle,
+    //     body_html: req.body.body_html,
+    //     body_mk: req.body.body_mk
+    // })
+    // log('/admin/create get data is >>>>>>>>>', article)
+    // await article.save(function(err) {
+    //     if (err) throw err;
+    //     log('save article is>>>>', article)
+    //     return res.status(200).send({url: '/admin/dashboard'})
+    // })
+
+    await Article.create({
         tittle: req.body.tittle,
         body_html: req.body.body_html,
         body_mk: req.body.body_mk
-    })
-    log('/admin/create get data is >>>>>>>>>', article)
-    await article.save(function(err) {
-        if (err) throw err;
-        log('save article is>>>>', article)
+    }, function(error, doc){
+        if (error) throw error;
+        log('save article is>', doc)
         return res.status(200).send({url: '/admin/dashboard'})
     })
 })

@@ -23,6 +23,9 @@ router.get('/about', (req, res) => {
     res.render('./home/about.html')
 })
 
+router.get('/projects', (req, res) => {
+    res.render('./home/project.html')
+})
 
 router.get('/post/:id', async (req, res) => {
     log('enter /post/id path')

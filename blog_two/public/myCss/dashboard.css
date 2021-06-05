@@ -1,3 +1,6 @@
+body, html {
+  height: 100%;
+}
 header {
     height: 60px;
     background-color: #00c3a4;
@@ -67,7 +70,7 @@ header {
 
   .my-table {
     margin-top: 50px;
-    min-height: 200px;
+    min-height: 343px;
   }
 .my-table thead th:nth-child(1) {
   width: 10%;
@@ -78,3 +81,13 @@ header {
   nav {
     text-align: center;
   }
+
+
+.pagination .active a{
+  /* font-size: 1.2rem; */
+  background-color: #00c3a4;
+  border-color: #00c3a4;
+}
+.pagination>li>a, .pagination>li>span {
+  color: #00c3a4;
+}

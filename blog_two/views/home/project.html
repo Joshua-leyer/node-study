@@ -1,0 +1,31 @@
+{{extend '../layout/home/homeLayout.html'}}
+
+
+{{block 'content'}}
+<link rel="stylesheet" href="/public/myCss/projects.css">
+
+<section id="projects">
+    <span class="h1">
+        <a href="#">My Projects</a>
+    </span>
+    <ul class="project-list">
+        <li class="project-item">
+            <a href="https://github.com/Joshua-leyer/Jquery" target="_blank">Jquery img view 插件</a> :
+            <p>适应任何屏幕的查看图片jquery插件</p>
+        </li>
+        <li class="project-item">
+            <a href="https://github.com/Joshua-leyer/Vue-Mooc-learn" target="_blank">Vue 去哪app项目练习</a> :
+            <p>模仿去哪网的移动端的前端页面</p>
+        </li>
+        <li class="project-item">
+            <a href="https://github.com/Joshua-leyer/javascript_game/tree/main/Sweep-game" target="_blank">扫雷游戏</a> :
+            <p>原生js+css实现的扫雷游戏</p>
+        </li>
+        <li class="project-item">
+            <a href="https://github.com/Joshua-leyer/javascript_game/tree/main/popstart-game" target="_blank">POPSTART</a> :
+            <p>点击块块消消乐游戏</p>
+        </li>
+    </ul>
+</section>
+
+{{/block}}

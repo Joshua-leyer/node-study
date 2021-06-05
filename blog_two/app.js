@@ -1,5 +1,5 @@
 const express = require('express')
-const session = require('express-session')
+// const session = require('express-session')
 const path = require('path')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
@@ -15,11 +15,7 @@ app.use(express.static(path.join(__dirname, 'node_modules')))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true
-}));
+
 
 app.use(cookieParser());
 
