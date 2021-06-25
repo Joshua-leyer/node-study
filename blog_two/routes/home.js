@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const log = console.log;
 
 
-// callback 的写法, 可以不适用async
 
 router.get('/', async (req, res) => {
     log('enter / path')
@@ -35,8 +34,8 @@ router.get('/post/:id', async (req, res) => {
         
         let doc = await Article.findById({_id: id}).exec();
         if (doc) {
-            let r_doc = await Article.findOne({'_id': {'$lt':　id}}).sort({_id: -1}).exec()
-            let l_doc = await Article.findOne({'_id': { '$gt': id}}).sort({_id:  1}).exec()
+            let r_doc = await Article.findOne({'_id': {'$lt': id}}).sort({_id: -1}).exec()
+            let l_doc = await Article.findOne({'_id': {'$gt': id}}).sort({_id:  1}).exec()
             let data = {
                 doc,
                 l_doc,
