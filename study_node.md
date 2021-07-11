@@ -1,8 +1,6 @@
 
 # Material
 
-[B站一个一小时讲解视频] 
-https://www.bilibili.com/video/BV1Nb411j7AC?from=search&seid=1461887889200035570
 
 
 一个源码分析  https://lq782655835.github.io/blogs/node/node-code-express.html
@@ -10,6 +8,7 @@ https://www.bilibili.com/video/BV1Nb411j7AC?from=search&seid=1461887889200035570
 [node.js系列教材](https://how2j.cn/k/nodejs/nodejs-start/1760.html) -系列文章
 
 [JavaScript标准参考教程 - express框架](https://javascript.ruanyifeng.com/nodejs/express.html) -系列文章
+
 
 [极简node.js教程](https://www.yuque.com/sunluyong/node) -系列文章
 

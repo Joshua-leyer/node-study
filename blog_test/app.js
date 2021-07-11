@@ -22,7 +22,7 @@ app.use(session({
 
 app.use(cookieParser());
 
-/* 这里是不使用express-messages */
+/* 这里是不使用 express-messages */
 const flash = require('connect-flash')
 app.use(flash())
 
