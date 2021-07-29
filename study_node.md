@@ -24,9 +24,3 @@
 
 [Node.js fs模块,readFile(),readFileSync()方法](https://www.jianshu.com/p/117f12a72abd) -文章
 
-
-## express 
-
-
-## mongoose
-
