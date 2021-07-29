@@ -15,6 +15,49 @@ http://www.nodeclass.com/api/mongoose.html
 
 # learning log
 
+
+### 基本命令
+
+- 基本操作
+
+  启动 >>>  
+  mongod  命令以前先创建db的文件夹   
+
+  修改默认的存储路径:
+  mongod --dbpah=路径
+
+  停止 >>>
+  ctrl + c
+
+  连接 : 
+  mongo 
+
+  关闭连接 : 
+  exit
+
+  基本命令
+    show dbs    查看所有的数据库(如果新建的数据库,里面没有内容,就看不到)
+    db    当前正在操作的数据库
+    use 数据库名字    
+    show collections 查看通过new Schema({}) 设计的文档结构 目录 比如输出>> cat
+    db.cats.find()
+
+
+
+
+$ mongo
+$ show dbs;
+$ use nodejs-blog
+$ db.createCollection('articles')
+$ show collections;
+$ db.articles.insert({ title: "Article One", author: "rails365", body: "This is article one" });
+$ db.articles.find();
+$ db.articles.insert({ title: "Article Two", author: "rails365", body: "This is article two" });
+$ db.articles.find().pretty();
+
+
+
+
 npm i mongoose
 
 在login-demo1 里面练习 mongoose.js
@@ -198,36 +241,6 @@ Tank.remove({ size: 'large' }, function (err) {
 ## mongoodb > :
 
 [关于mongodb入手要了解的文章](https://jzleung.github.io/2016/08/13/mongoose-guide/)
-
-
-
-
-
-基本命令
-
-- 基本操作
-
-  启动 >>>  
-  mongod  命令以前先创建db的文件夹   
-
-  修改默认的存储路径:
-  mongod --dbpah=路径
-
-  停止 >>>
-  ctrl + c
-
-  连接 : 
-  mongo 
-
-  关闭连接 : 
-  exit
-
-  基本命令
-    show dbs    查看所有的数据库(如果新建的数据库,里面没有内容,就看不到)
-    db    当前正在操作的数据库
-    use 数据库名字    
-    show collections 查看通过new Schema({}) 设计的文档结构 目录 比如输出>> cat
-    db.cats.find()
 
 
 

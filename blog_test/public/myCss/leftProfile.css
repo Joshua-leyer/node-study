@@ -1,6 +1,0 @@
-.Mycontianer #left #myProfile div {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    font-size: 1em;
-    margin: 4px 0;
-}

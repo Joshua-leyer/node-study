@@ -1,10 +1,6 @@
 
 # Material
 
-[B站一个一小时讲解视频] 
-https://www.bilibili.com/video/BV1Nb411j7AC?from=search&seid=1461887889200035570
-
-
 一个源码分析  https://lq782655835.github.io/blogs/node/node-code-express.html
 
 [node.js系列教材](https://how2j.cn/k/nodejs/nodejs-start/1760.html) -系列文章
@@ -18,16 +14,14 @@ https://www.bilibili.com/video/BV1Nb411j7AC?from=search&seid=1461887889200035570
 
 [【实战】用 express+MongoDB 搭建一个完整的前端项目](https://segmentfault.com/a/1190000015866331)
 
-!! node.js 方面最开始内容重心都在学习web框架上了.这里更多的资料都在 express.md 文件里面.
+
+[Nodejs的运行原理-科普篇] (https://www.cnblogs.com/peiyu1988/p/8032982.html) and (https://www.cnblogs.com/peiyu1988/tag/nodejs/)
 
 
-## Node.js
-
-[Node.js fs模块,readFile(),readFileSync()方法](https://www.jianshu.com/p/117f12a72abd) -文章
+[关于libuv的一个gitbook] (http://luohaha.github.io/Chinese-uvbook/source/introduction.html)
 
 
-## express 
 
 
-## mongoose
+
 
