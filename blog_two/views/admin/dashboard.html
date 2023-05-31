@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {{include '../layout/layoutHead.html' }}
+    <link rel="stylesheet" href="/myCss/dashboard.css">
+</head>
+<body>
+
+    <header>文章管理页面</header>
+    
+    <div id="content">
+        <div class="option">
+            <h3 class="back-bome"><a href="/">< home</a></h3>
+            <div id="add">
+                <button type="button" class="btn btn-success"> <a href="/admin/add">Add</a> </button>
+            </div>
+        </div>
+
+    
+        <table class="table my-table">
+            <thead >
+                <tr>
+                  <th>#</th>
+                  <th>标题</th>
+                  <th>created</th>
+                  <th>Options</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+ 
+
+                {{each doc value index}}
+                <tr>
+                    <td>{{index + 1}}</td>
+                    <td>{{value.tittle}}</td>
+                    <td>{{value.created}}</td>
+                    <td>
+                        <button type="button" class="btn btn-info"> <a href="edit/{{ value._id.toString() }}">Info</a></button>
+                        <button type="button" class="btn btn-warning"> <a href="delete/{{ value._id.toString() }}">Delete</a> </button>
+                    </td>
+                </tr>
+                {{/each}}
+                
+            </tbody>
+        </table>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+              <li style="display: {{ page-0-1 < 1 ? 'none' : 'inline' }}">
+                <a href="/admin/dashboard?page={{page-0 - 1}}" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+                <% for (let i = 1; i <= total; i++) { %>
+                    <li {{if i == page }}  class="active" {{/if}}><a href="/admin/dashboard?page={{i}}">{{i}}</a></li>
+                <% } %>
+              <li style="display: {{ page-0+1 > total ? 'none' : 'inline' }}">
+                <a href="/admin/dashboard?page={{page-0 + 1}}" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+        </nav>
+
+    </div>
+
+    {{include '../layout/admin/admin_footer.html'}}
+
+</body>
+</html>

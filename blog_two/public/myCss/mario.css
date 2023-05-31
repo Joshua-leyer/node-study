@@ -1,0 +1,13 @@
+#like-img {
+    position: absolute;
+    width:120px;
+    height: 120px;
+    left: 700px;
+    bottom: 100px;
+}
+
+#like-img img {
+    height: 100%;
+    width: auto;
+}
+

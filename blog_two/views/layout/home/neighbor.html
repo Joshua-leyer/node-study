@@ -1,0 +1,19 @@
+
+<link rel="stylesheet" href="/myCss/neighbor.css">
+
+
+<div id="b-a">
+    {{if data.l_doc }}
+        <div id="l_btn"><a href="/post/{{ data.l_doc._id.toString() }}">{{ data.l_doc.tittle }} </a></div>
+    {{else}}
+        <div id="l_btn"><a href="#"> 空 </a></div>
+    {{/if}}
+
+    {{if data.r_doc }}
+        <div id="r_btn"><a href="/post/{{ data.r_doc._id.toString() }}">{{ data.r_doc.tittle }} </a></div>
+    {{else}}
+        <div id="r_btn"><a href="#"> 空 </a></div>
+    {{/if}}
+</div>
+
+

@@ -1,0 +1,62 @@
+{{extend '../layout/home/homeLayout.html'}}
+
+
+{{block 'content'}}
+<link rel="stylesheet" href="/myCss/index.css">
+
+    <section id="about">
+        <p>happy every day!!!</p>
+        <p>Find me on 
+            <a href="https://github.com/Joshua-leyer" class="icon" target="_blank"><i class="j-github">git</i></a>
+            
+            <a href="#" class="icon" target="_blank"><i class="j-QQ"></i></a>
+        </p>
+    </section>
+
+    <section id="writing">
+        <span class="h1">
+            <a href="#">Writing</a>
+        </span>
+
+        <ul class="post-list">
+            {{each doc value index}}
+                <li class="post-item">
+                    <div class="meta">{{ value.created }}</div>
+                    <span>
+                        <a href="/post/{{ value._id.toString() }}">{{ value.tittle }}</a>
+                    </span>
+                </li>
+            {{/each}}
+
+        </ul>
+
+    </section>
+
+    <section id="projects">
+        <span class="h1">
+            <a href="/">Projects</a>
+        </span>
+        <ul class="project-list">
+            <li class="project-item">
+                <a href="https://github.com/Joshua-leyer/Jquery" target="_blank">Jquery img view 插件</a> :
+                <p>适应任何屏幕的查看图片jquery插件</p>
+            </li>
+            <li class="project-item">
+                <a href="https://github.com/Joshua-leyer/Vue-Mooc-learn" target="_blank">Vue 去哪app项目练习</a> :
+                <p>模仿去哪网的移动端的前端页面</p>
+            </li>
+            <li class="project-item">
+                <a href="https://github.com/Joshua-leyer/javascript_game/tree/main/Sweep-game" target="_blank">扫雷游戏</a> :
+                <p>原生js+css实现的扫雷游戏</p>
+            </li>
+            <li class="project-item">
+                <a href="https://github.com/Joshua-leyer/javascript_game/tree/main/popstart-game" target="_blank">POPSTART</a> :
+                <p>点击块块消消乐游戏</p>
+            </li>
+        </ul>
+    </section>
+
+<div id="like-img">
+    {{include '../layout/mario.html'}}
+</div>
+{{/block}}
