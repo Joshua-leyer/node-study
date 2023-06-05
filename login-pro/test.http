@@ -1,0 +1,39 @@
+@url = http://localhost:3001/api
+@json = Content-Type: application/json
+
+### 点击 Send Request 就能发送请求
+
+###
+
+get {{url}}
+
+### 登录
+
+post {{url}}/login
+{{json}}
+// 注意这里必须有空格, 否则rest client插件无法判断出哪个是请求头,请求体
+
+{
+    "username": "user1",
+    "password": "123"
+}
+
+### 注册
+
+post {{url}}/register
+{{json}}
+
+{
+    "username": "user1",
+    "password": "123"
+}
+
+### get users 
+get {{url}}/users
+
+
+### 用户信息
+get {{url}}/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2NiM2UyMjZmZDk1NTBiMGQxNGUyYyIsImlhdCI6MTY4NTg5NTg2MX0.3gAt4-fuUcthU0xzv_MdngkNNjgkcLYhbn4D7eO2ay0
+
+

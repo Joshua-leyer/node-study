@@ -17,6 +17,9 @@ mongoose.md 关于 mongoose 相关的知识点
 ## files >
 ### login-demo/  node.js mongoose jwtToken实现的用户登录
 
+### login-pro/ 全栈之巅, jwt , 注册登录验证功能学习
+
+
 -------------------
 # 学习资料 
 
