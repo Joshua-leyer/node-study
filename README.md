@@ -9,16 +9,17 @@
   
 
 |:ledger: | 概括 |
-| :--: |:---  |
+| :-- |:---  |
 知识点练习代码 | 单个JS文件用来练习知识点
 login-demo |  node.js、mongoose、jwtToken实现的用户登录
 login-pro |  全栈之巅 ：jwt , 注册登录验证功能学习
-koa_Learn | koa2框架的学习
+koa_Learn | koa2框架的学习，只是简单的使用了一下框架
 blog_test | 最简单的 express ，使用模板引擎渲染 html方式的一个练习
 blog_two | 基于blog_test的多加功能，有登录验证功能
 express_test | express ，mongoose 简单的使用测试
+spider_zhuang | 一个网页的爬下来文章， async-request，cheerio 库
 
--------------------
+
 # 学习资料 
 
 [博客园的一个文章:](https://www.cnblogs.com/peiyu1988/p/8032982.html)
@@ -31,7 +32,7 @@ express_test | express ，mongoose 简单的使用测试
 
 [Markdown基本语法](https://www.markdown.xyz/basic-syntax/)
 
---------------------
+
 
 # Learning log
 
