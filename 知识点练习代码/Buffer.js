@@ -13,3 +13,10 @@ console.log(buffer.toString())
 const buffer1 = Buffer.from("hello")
 console.log(buffer.length);
 
+const fs = require('fs');
+
+fs.readFile('./Buffer.js', (err, data) => {
+    if (err) console.err(err)
+    console.log(data)
+})
+
