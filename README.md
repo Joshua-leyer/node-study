@@ -18,7 +18,7 @@ blog_test | 最简单的 express ，使用模板引擎渲染 html方式的一个
 blog_two | 基于blog_test的多加功能，有登录验证功能
 express_test | express ，mongoose 简单的使用测试
 spider_zhuang | 一个网页的爬下来文章， async-request，cheerio 库
-
+SpiderRankingOfPeople | 一个报名网站的报名人数信息查询，使用axios、cheerio
 
 # 学习资料 
 
